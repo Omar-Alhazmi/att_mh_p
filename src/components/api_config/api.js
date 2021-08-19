@@ -95,4 +95,6 @@ export const getAllTeams = () => {
 export const getTeamLeader = (id) => {
   return axios.get(`${apiURL}api/get/Team/ByUser/${id}`, config);
 }
-
+export const getAllUserGender = () => {
+  return axios.get(`${apiURL}api/get/all/user/gender`);
+}
