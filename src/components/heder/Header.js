@@ -11,7 +11,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import Home from "../MH_home";
+import Home from "../home/Home";
 import {leadTeam,newTeam,haveTeam } from '../helperMethods';
 
 const Header = ({ toggle }) => {

@@ -1,0 +1,37 @@
+.chartBar{
+    display: grid;
+    border: black solid 1px;
+    padding: 2%;
+    margin: 10px;
+    margin-top: 56px;
+  }
+  .chartContainer{
+    display: flex;
+      align-items: center;
+      justify-content: center;
+      align-content: space-around;
+      flex-wrap: wrap;
+  
+    }
+  .genderChart{
+    display: flex;
+     height: 375px; 
+      width: 375px;
+  }
+  .chartDiscretion{
+    border-bottom: solid black 1px;
+  
+  }
+  
+  @media screen and (max-width: 600px) {
+    .chartContainer{
+      display: grid;
+      border:none;
+    }
+    .genderChart{
+      display: block;
+      width: fit-content;
+      height: fit-content;
+    }
+  }
+  
