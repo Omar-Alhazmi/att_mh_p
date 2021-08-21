@@ -34,4 +34,9 @@
       height: fit-content;
     }
   }
+  @media screen and (max-width: 331px) {
+  .chartBar{
+    border: none;
+  }
+}
   

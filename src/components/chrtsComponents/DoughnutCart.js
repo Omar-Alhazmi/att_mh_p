@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import { Doughnut } from 'react-chartjs-2';
 import '../styles/chart.css';
 import { getAllUserGender, getAllTeams } from '../api_config/api'
+import {LabelContainer,LabelCard,CardHeadLine} from './StyledLabel'
 export default class DoughnutCart extends Component {
     constructor(props) {
         super(props);
         this.state = {
             MaleCount: 0,
             FemaleCount: 0,
+            memberCount:0,
 
         }
     }
@@ -35,21 +37,29 @@ export default class DoughnutCart extends Component {
     getTeams(){
         getAllTeams()
         .then((response) => {
-            const data = response.data
-            var count
-            data.map((members)=>{
-                // if(members.Members.length>1){
-                  return  count  += members.Members.length
-                // }
+            const TeamData = response.data
+            let memberCount = 0
+            let leaderCount = 0
+            const teamCount = TeamData.length
+            TeamData.map((members)=>{
+                console.log(members);
+                if(members.Members.length>1){
+                  return  memberCount  += members.Members.length
+                }else return 0
             })
-            this.setState({ count });
+            TeamData.map((item)=>{
+                if(item.Leader){
+                  return  leaderCount  += 1
+                }else return 0
+            })
+            this.setState({ memberCount,teamCount,leaderCount, TeamData});
         })
         .catch((error) => {
         })
     }
 
     render() {
-        const { MaleCount, FemaleCount } = this.state
+        const { MaleCount, FemaleCount, memberCount} = this.state
         const genderData = {
             labels: [`عدد الذكور:  ${MaleCount}`
                 , `عدد الاناث: ${FemaleCount}`],
@@ -77,6 +87,16 @@ export default class DoughnutCart extends Component {
                         Test chart
                     </div>
                     <div className="chartContainer">
+                        <LabelContainer>
+                            <LabelCard white greenOrYll>
+                                <CardHeadLine white>
+                                    عدد المتطوعين
+                                </CardHeadLine>
+                                <p>
+                                    {memberCount}
+                                </p>
+                            </LabelCard>
+                        </LabelContainer>
                         <div className="genderChart">
                             <Doughnut data={genderData} />
                         </div>
