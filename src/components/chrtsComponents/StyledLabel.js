@@ -10,7 +10,9 @@ export const LabelContainer = styled.div`
 `
 
 export const LabelCard = styled.div`
-  border-top: 3px solid hsl(180, 62%, 55%);
+  border-top: 3px solid ${({greenLine,orangeLine,blueLine}) => (greenLine ? '#45d3d3' : 
+                                                    orangeLine ? '#fcaf4a' : blueLine ? "#549ef2"
+                                                    :'#0000')};
     border-radius: 5px;
     box-shadow: 0px 30px 40px -20px hsl(229, 6%, 66%);
     padding: 30px;
@@ -19,7 +21,12 @@ export const LabelCard = styled.div`
         height: 133px;
         width: 254px;
     color:${({white}) => (white ? '#ffff' : '#0000')};
-    background-color:${({greenOrYll}) => (greenOrYll ? '#00968857' : '#0000')};
+    background-color:${({green,read}) => (green ? '#00968857' : read ? '#f27173 ':'#0000')};
+    &:hover{
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
 @media (max-width: 450px) {
         height: 200px;
         margin: 57px;
@@ -35,6 +42,18 @@ export const LabelCard = styled.div`
 export const CardHeadLine = styled.h2`
     color:${({white}) => (white ? '#ffff' : '#0000')};
         font-weight: 600;
+        font-size: 1.7rem;
+        line-height: none!important;
+        margin: none!important;
+@media (max-width:1024px) {
+        line-height: none;
+        margin: none!important;}
+
+`
+export const TableContainer = styled.div`
+   width:50%;
+   justify-content:center;
+   align-items:center;
 `
 
 

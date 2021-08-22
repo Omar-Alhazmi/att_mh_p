@@ -3,6 +3,7 @@ import { Doughnut } from 'react-chartjs-2';
 import '../styles/chart.css';
 import { getAllUserGender, getAllTeams } from '../api_config/api'
 import {LabelContainer,LabelCard,CardHeadLine} from './StyledLabel'
+import TeamTable from './TeamTable'
 export default class DoughnutCart extends Component {
     constructor(props) {
         super(props);
@@ -10,7 +11,6 @@ export default class DoughnutCart extends Component {
             MaleCount: 0,
             FemaleCount: 0,
             memberCount:0,
-
         }
     }
     componentDidMount() {
@@ -59,7 +59,7 @@ export default class DoughnutCart extends Component {
     }
 
     render() {
-        const { MaleCount, FemaleCount, memberCount} = this.state
+        const { MaleCount, FemaleCount, memberCount,teamCount,TeamData} = this.state
         const genderData = {
             labels: [`عدد الذكور:  ${MaleCount}`
                 , `عدد الاناث: ${FemaleCount}`],
@@ -87,8 +87,21 @@ export default class DoughnutCart extends Component {
                         Test chart
                     </div>
                     <div className="chartContainer">
+                        <div className="genderChart">
+                            <Doughnut data={genderData} />
+                        </div>
                         <LabelContainer>
-                            <LabelCard white greenOrYll>
+                            <LabelCard white colorIs green={true} orangeLine={true}>
+                                <CardHeadLine white>
+                                    عدد الفرق التطوعية
+                                </CardHeadLine>
+                                <p>
+                                    {teamCount}
+                                </p>
+                            </LabelCard>
+                        </LabelContainer>
+                        <LabelContainer>
+                            <LabelCard white colorIs read={true} blueLine={true}>
                                 <CardHeadLine white>
                                     عدد المتطوعين
                                 </CardHeadLine>
@@ -97,11 +110,9 @@ export default class DoughnutCart extends Component {
                                 </p>
                             </LabelCard>
                         </LabelContainer>
-                        <div className="genderChart">
-                            <Doughnut data={genderData} />
-                        </div>
                     </div>
                 </div>
+                    <TeamTable data={TeamData} />
             </div>
         )
     }

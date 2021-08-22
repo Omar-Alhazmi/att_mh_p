@@ -20,7 +20,7 @@
   }
   .chartDiscretion{
     border-bottom: solid black 1px;
-  
+    text-align: center;
   }
   
   @media screen and (max-width: 600px) {
@@ -34,9 +34,22 @@
       height: fit-content;
     }
   }
-  @media screen and (max-width: 331px) {
+  @media screen and (max-width: 407px) {
   .chartBar{
     border: none;
   }
+}
+@media screen and (max-width: 393px){
+  .chartDiscretion{
+    border-bottom: none;
+  }
+}
+@media screen and(max-width: 279) {
+  .chartBar {
+    display: block;
+    padding: 0;
+    margin: 0;
+    margin-top: 56px;
+}
 }
   
