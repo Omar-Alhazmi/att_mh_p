@@ -8,7 +8,6 @@ export const LabelContainer = styled.div`
 }
 
 `
-
 export const LabelCard = styled.div`
   border-top: 3px solid ${({greenLine,orangeLine,blueLine}) => (greenLine ? '#45d3d3' : 
                                                     orangeLine ? '#fcaf4a' : blueLine ? "#549ef2"
@@ -44,16 +43,39 @@ export const CardHeadLine = styled.h2`
         font-weight: 600;
         font-size: 1.7rem;
         line-height: none!important;
-        margin: none!important;
+            margin: auto;
 @media (max-width:1024px) {
         line-height: none;
-        margin: none!important;}
+            margin: auto;}
 
 `
 export const TableContainer = styled.div`
-   width:50%;
    justify-content:center;
    align-items:center;
+    width: 69%;
+    margin: auto;
+    margin-top: 59px;
+    margin-bottom: 58px;
+    position: relative;
+  max-height:  300px;
+  overflow: scroll;
+  box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+@media (max-width: 702px){
+    width: 100%; 
+}
+`
+export const ChartContainer = styled.div`
+    display: flex;
+      align-items: center;
+      justify-content: center;
+      align-content: space-around;
+      flex-wrap: wrap;
+      box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+
+      @media screen and (max-width: 600px) {
+      display: grid;
+      border:none;
+      }
 `
 
 

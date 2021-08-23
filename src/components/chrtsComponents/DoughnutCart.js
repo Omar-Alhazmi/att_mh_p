@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Doughnut } from 'react-chartjs-2';
 import '../styles/chart.css';
 import { getAllUserGender, getAllTeams } from '../api_config/api'
-import {LabelContainer,LabelCard,CardHeadLine} from './StyledLabel'
+import {LabelContainer,LabelCard,CardHeadLine,ChartContainer} from './StyledLabel'
 import TeamTable from './TeamTable'
 export default class DoughnutCart extends Component {
     constructor(props) {
@@ -86,7 +86,7 @@ export default class DoughnutCart extends Component {
                     <div className="chartDiscretion">
                         Test chart
                     </div>
-                    <div className="chartContainer">
+                    <ChartContainer>
                         <div className="genderChart">
                             <Doughnut data={genderData} />
                         </div>
@@ -110,7 +110,7 @@ export default class DoughnutCart extends Component {
                                 </p>
                             </LabelCard>
                         </LabelContainer>
-                    </div>
+                    </ChartContainer>
                 </div>
                     <TeamTable data={TeamData} />
             </div>

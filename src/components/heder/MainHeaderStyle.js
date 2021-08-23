@@ -19,6 +19,7 @@ display: flex;
   display: -moz-flex;
   display: -webkit-flex;
   display: flex;
+  -webkit-box-shadow:-3px 6px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 0px 0 rgb(0 0 0 / 0%);
 justify-content: right;
 align-items: right;
 font-size: 1rem;
@@ -108,6 +109,10 @@ export const NavLogReg = styled.nav`
 display: flex;
 align-items: center;
 justify-content: flex-end;
+-webkit-box-shadow: none;
+box-shadow:none;
+background-color: transparent;
+outline: none;
 
 @media screen and (max-width: 768px) {
     display: none;
