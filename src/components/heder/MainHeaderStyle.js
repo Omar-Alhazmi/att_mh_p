@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 export const Nav = styled.nav`
 background: ${({scrollNav}) => (scrollNav ? '#c6e4d1' : 'transparent')};
 height: 80px;
+/* margin-top: -80px; */
 display: flex;
 -webkit-flex-direction: column; 
   flex-direction: column; 
@@ -26,10 +27,11 @@ font-size: 1rem;
 position: sticky;
 top: 0;
 z-index: 10;
-
-
 @media screen and (max-width:960px){
      transition: 0.8s all ease;
+     display: grid;
+    justify-content: center;
+    margin: 17px 0;
 }`;
 export const NavContainer = styled.div`
 display: flex;
@@ -52,26 +54,25 @@ font-weight: bold;
 text-decoration: none;
 `;
 export const Image = styled.img`
-
     width: ${({scrollNav}) => (scrollNav ? `100px` : `227px`)};
-
     @media screen and (max-width:960px){
         width: 130px;
+        display: grid;
+    justify-content: center;
         }
     `
 
 export const ResponsiveIcon = styled.div`
 display:none;
 @media screen and (max-width: 768px){
-  background-color: #c99f34;
-    display: block;
+    display: grid;
     position: absolute;
+    color: #607d8b;
     top: 0;
     right: 0;
     transform: translate(-100%,60%); 
     font-size: 1.8rem;
     cursor: pointer;
-    color:#B38533;
 }`;
 
 export const NavMenu = styled.ul`
@@ -81,7 +82,6 @@ list-style: none;
 text-align: center;
 margin-right: -22px;
 color: #B38533;
-
 @media screen and (max-width:760px){
     display:none;
 }`;
@@ -109,15 +109,26 @@ export const NavLogReg = styled.nav`
 display: flex;
 align-items: center;
 justify-content: flex-end;
--webkit-box-shadow: none;
-box-shadow:none;
-background-color: transparent;
-outline: none;
-
 @media screen and (max-width: 768px) {
     display: none;
 }`
 export const NavLogRegLink = styled(Link)`
+border-radius: 50px;
+white-space: nowrap;
+padding: 10px 22px;
+text-align:left;
+font-size: 16px;
+outline: none;
+border: none;
+cursor: pointer;
+/* transition: all 0.2s ease-in-out; */
+text-decoration: none;
+color: #3EC1B9;
+&:hover{
+  color: #B38533;
+}
+`
+export const Logout = styled.button`
 border-radius: 50px;
 white-space: nowrap;
 padding: 10px 22px;

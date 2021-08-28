@@ -1,42 +1,39 @@
 import React, { Component } from 'react'
-import { TableContainer } from './StyledLabel'
-
+import '../styles/spinner.css'
+import * as StyledTable from '../styles/StyledTable'
 export default class TeamTable extends Component {
     render() {
-        let allTeam = "...."
+        let allTeam = <div class="spinner tableSp">Loading...</div>
         if (this.props.data) {
             if (this.props.data.length > 0) {
                 allTeam = this.props.data.map((data, index) => {
                     return (
-                        <tr key={index}>
-                            <td className="tableBody">{data.data.TeamName}</td>
-                            <td className="tableBody">{data.Leader.FullName}</td>
-                            <td className="tableBody">{data.Members.length}</td>
-                            <td className="tableBody">{data.data.NumberOfII}</td>
-                        </tr>
+                        <StyledTable.TableTr key={index}>
+                            <StyledTable.TableTd className="tableBody">{data.data.TeamName}</StyledTable.TableTd>
+                            <StyledTable.TableTd className="tableBody">{data.Leader.FullName}</StyledTable.TableTd>
+                            <StyledTable.TableTd className="tableBody">{data.Members.length}</StyledTable.TableTd>
+                            <StyledTable.TableTd className="tableBody">{data.data.NumberOfII}</StyledTable.TableTd>
+                        </StyledTable.TableTr>
                     )
                 })
             }
         }
-        console.log(allTeam);
         return (
-            <div>
-                <TableContainer>
-                    <table className="fl-table ">
-                        <thead className="tHeadContainer">
-                            <tr>
-                                <th className="tableHeader">اسم الفريق</th>
-                                <th className="tableHeader">قئد الفريق</th>
-                                <th className="tableHeader">عدد الاعضاء</th>
-                                <th className="tableHeader">عدد المبادرات</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {allTeam}
-                        </tbody>
-                    </table>
-                </TableContainer>
-            </div>
+            <StyledTable.TableWrapper>
+                <StyledTable.TableContainer>
+                    <StyledTable.TableHedContainer>
+                        <tr>
+                            <StyledTable.TableTh className="tableHeader">اسم الفريق</StyledTable.TableTh>
+                            <StyledTable.TableTh className="tableHeader">قئد الفريق</StyledTable.TableTh>
+                            <StyledTable.TableTh className="tableHeader">عدد الاعضاء</StyledTable.TableTh>
+                            <StyledTable.TableTh className="tableHeader">عدد المبادرات</StyledTable.TableTh>
+                        </tr>
+                    </StyledTable.TableHedContainer>
+                    <StyledTable.TableBodyContainer>
+                        {allTeam}
+                    </StyledTable.TableBodyContainer>
+                </StyledTable.TableContainer>
+            </StyledTable.TableWrapper>
         )
     }
 }

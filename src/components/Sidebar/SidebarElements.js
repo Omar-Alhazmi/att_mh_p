@@ -17,14 +17,13 @@ opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
 top:${({ isOpen }) => (isOpen ? '0' : '-100%')};`;
 
 export const CloseIcon = styled(FaTimes)`
-color:#fff;`;
+color: #607d8b;`;
 
 export const SidebarMenu = styled.ul`
 display: grid;
 grid-template-columns: 1fr;
 grid-template-rows: repeat(6, 80px);
 text-align: center;
-
 @media screen and (max-width: 480px){
     grid-template-rows:repeat(6,60px);
 }`;
@@ -52,7 +51,6 @@ transition: 0.2s ease-in-out;
 text-decoration: none;
 color: #3EC1B9;
 cursor: pointer;
-
 &:hover {
     color: #01bf71;
     transition: 0.2s ease-in-out;
@@ -74,12 +72,8 @@ border: none;
 cursor: pointer;
 transition: all 0.2s ease-in-out;
 text-decoration: none;
-
-
-
 &:hover {
     transition: all 0.2s ease-in-out;
     background: #fff;
     color:#010606;
 }`
-

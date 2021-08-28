@@ -61,6 +61,19 @@ export const NewPost = (req, id, image) => {
     )
     .catch(err => console.log(err));
 };
+//========================= Add New Post Police =============================\\
+export const NewPolice = (Title, id, file) => {
+  console.log(Title);
+  const formData = new FormData();
+  formData.append("Title", Title);
+  formData.append("file", file);
+  return axios.post(`${apiURL}api/upload/new/Police/${id}`, formData, config)
+    .then(res => {
+      // window.location.reload(false)
+    }
+    )
+    .catch(err => console.log(err));
+};
 //========================= Update Team Data =============================\\
 export const UpdateTeam = (req, id, Logo) => {
   const formData = new FormData();
@@ -92,6 +105,9 @@ export const getAllNews = () => {
 export const getAllTeams = () => {
   return axios.get(`${apiURL}api/get/allTeams`);
 }
+export const getAllWaitListTeams = () => {
+  return axios.get(`${apiURL}api/get/allTeams/in/WaitList`,config );
+}
 export const getTeamLeader = (id) => {
   return axios.get(`${apiURL}api/get/Team/ByUser/${id}`, config);
 }
@@ -100,4 +116,13 @@ export const getAllUserGender = () => {
 }
 export const getAllTeamsInitiatives = () => {
   return axios.get(`${apiURL}api/get/all/teams/initiatives`);
+}
+export const changTeamState = (id) => {
+  return axios.get(`${apiURL}api/update/team/status/${id}`, config);
+}
+export const deleteTeamById = (id) => {
+  return axios.delete(`${apiURL}api/delete/team/byID/${id}`, config);
+}
+export const getAllPolices = () => {
+  return axios.get(`${apiURL}api/get/All/Polices`);
 }

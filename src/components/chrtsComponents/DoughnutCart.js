@@ -11,6 +11,7 @@ export default class DoughnutCart extends Component {
             MaleCount: 0,
             FemaleCount: 0,
             memberCount:0,
+            teamCount:0
         }
     }
     componentDidMount() {
@@ -60,8 +61,9 @@ export default class DoughnutCart extends Component {
 
     render() {
         const { MaleCount, FemaleCount, memberCount,teamCount,TeamData} = this.state
+        
         const genderData = {
-            labels: [`عدد الذكور:  ${MaleCount}`
+            labels: [`عدد الذكور: ${MaleCount}`
                 , `عدد الاناث: ${FemaleCount}`],
             datasets: [
                 {
@@ -84,11 +86,12 @@ export default class DoughnutCart extends Component {
             <div>
                 <div className="chartBar">
                     <div className="chartDiscretion">
-                        Test chart
+                        احصائيات
                     </div>
                     <ChartContainer>
                         <div className="genderChart">
-                            <Doughnut data={genderData} />
+                            {MaleCount === 0 && FemaleCount === 0 ? <div class="spinner">Loading...</div> : 
+                            <Doughnut data={genderData} />}
                         </div>
                         <LabelContainer>
                             <LabelCard white colorIs green={true} orangeLine={true}>
@@ -96,7 +99,8 @@ export default class DoughnutCart extends Component {
                                     عدد الفرق التطوعية
                                 </CardHeadLine>
                                 <p>
-                                    {teamCount}
+                                {teamCount === 0  ?<div class="spinner">Loading...</div> :
+                                    teamCount}
                                 </p>
                             </LabelCard>
                         </LabelContainer>
@@ -106,7 +110,8 @@ export default class DoughnutCart extends Component {
                                     عدد المتطوعين
                                 </CardHeadLine>
                                 <p>
-                                    {memberCount}
+                                    { memberCount === 0 ?<div class="spinner">Loading...</div> :
+                                    memberCount}
                                 </p>
                             </LabelCard>
                         </LabelContainer>

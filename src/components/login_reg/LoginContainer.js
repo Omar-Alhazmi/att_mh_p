@@ -56,26 +56,13 @@ export default class LoginContainer extends Component {
         localStorage.setItem('CountTime', new Date());
         let jwt = getInfo().data.Role;
         if (jwt === undefined) {
-          history.push("/");
+          history.push("/Login");
           Swal.fire(` ${jwt}`, "", 'error');
         }
-        else if (jwt === "TeamLeader") {
+        else if (jwt === "Superintendent") {
           console.log(jwt);
           Swal.fire({ icon: 'success', title: ` مرحبا  ${getInfo().data.FullName} `,showConfirmButton: false,timer: 1500 });
-          history.push('/#/TeamLeader')
-        } else if (jwt === "TeamCoLeader") {
-          console.log(jwt);
-          history.push("/");
-          Swal.fire({ icon: 'success', title: ` مرحبا  ${getInfo().data.FullName} `,showConfirmButton: false,timer: 1500 });
-        } else if (jwt === "TeamMember") {
-          history.push("/");
-          Swal.fire({ icon: 'success', title: ` مرحبا  ${getInfo().data.FullName} `,showConfirmButton: false,timer: 1500 });
-        } else if (jwt === "GeneralMember") {
-          history.push("/");
-          Swal.fire({ icon: 'success', title: ` مرحبا  ${getInfo().data.FullName} `,showConfirmButton: false,timer: 1500 });
-        } else if (jwt === "Superintendent") {
-          history.push("/#/MH_home");
-          Swal.fire({ icon: 'success', title: ` مرحبا  ${getInfo().data.FullName} `,showConfirmButton: false,timer: 1500 });
+          history.push('/')
         }
         else {
           Swal.fire(` البريد الاليكتروني او كلمة المرور غير صحيحة`, "", 'error');
