@@ -114,9 +114,9 @@ export const getTeamLeader = (id) => {
 export const getAllUserGender = () => {
   return axios.get(`${apiURL}api/get/all/user/gender`);
 }
-export const getAllTeamsInitiatives = () => {
-  return axios.get(`${apiURL}api/get/all/teams/initiatives`);
-}
+// export const getAllTeamsInitiatives = () => {
+//   return axios.get(`${apiURL}api/get/all/teams/initiatives`);
+// }
 export const changTeamState = (id) => {
   return axios.get(`${apiURL}api/update/team/status/${id}`, config);
 }

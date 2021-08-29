@@ -7,6 +7,7 @@ import Footer from '../footer/Footer';
 import { authToPost, getId, validFileType } from '../helperMethods';
 import NewsForm from './NewsForm';
 import Swal from "sweetalert2";
+import {FormContainer,Modal,ModalWrap} from './Form';
 
 export default class News extends Component {
   constructor(props) {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { CgSoftwareUpload, CgEditFlipH } from "react-icons/cg";
+import {FormContainer,Modal,ModalWrap} from './Form';
 import '../styles/news.css';
 import {validFileType} from '../helperMethods';
 export default class NewsForm extends Component {
@@ -9,7 +10,11 @@ export default class NewsForm extends Component {
     if(image !== "") imagePH = image.name
     else imagePH = "صورة الخبر";
         return (
-            <div className="nwsModalContainer">
+            <>
+         {/* <div className="nwsModalContainer"> */}
+            <FormContainer>
+                <Modal>
+                <ModalWrap>
                 <form onSubmit={this.props.onFormSubmit}>
                     <div className="flex-row">
                         <label className="lf--label" htmlFor="image">
@@ -56,8 +61,11 @@ export default class NewsForm extends Component {
                     <input className='lf--submit' type='submit' value='حفض وارسال' onSubmit={this.props.onFormSubmit} onClick={this.props.onFormSubmit} />
                 </form>
                 <input className='lf--submit' type='submit' value='العودة' onClick={this.props.hide} />
-
-            </div>
+                </ModalWrap>
+                </Modal>
+                </FormContainer>
+            
+            </>
         )
     }
 }

@@ -43,7 +43,6 @@ export default class DoughnutCart extends Component {
             let leaderCount = 0
             const teamCount = TeamData.length
             TeamData.map((members)=>{
-                console.log(members);
                 if(members.Members.length>1){
                   return  memberCount  += members.Members.length
                 }else return 0
